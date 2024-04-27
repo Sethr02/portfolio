@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .imgbox {
+        display: grid;
+        height: 100%;
+        position: relative;
+      }
+
+      .center-fit {
+        max-width: 100%;
+        display: block;
+      }
+
+      .download-btn,
+      .back-btn {
+        position: absolute;
+        top: 10px; /* Adjust this value to change the distance from the top */
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1;
+      }
+      .download-btn {
+        background-color: #007bff;
+        color: #fff;
+        right: 10px; /* Adjust this value to change the distance from the right */
+      }
+
+      .back-btn {
+        background-color: #ccc;
+        color: #000;
+        left: 10px; /* Adjust this value to change the distance from the left */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="imgbox">
+      <img class="center-fit" src="src/cv.jpg" />
+      <button class="download-btn" onclick="downloadPDF()">Download PDF</button>
+      <button class="back-btn" onclick="goBack()">Back</button>
+    </div>
+
+    <script>
+      function downloadPDF() {
+        // Replace 'path/to/your/pdf.pdf' with the actual path to your PDF file
+        var pdfUrl = "src/My CV.pdf";
+        var link = document.createElement("a");
+        link.href = pdfUrl;
+        link.download = "Seth's Resume.pdf"; // You can change the name of the downloaded file here
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+  </body>
+</html>
