@@ -1,0 +1,512 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Josefin Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #0a192f;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: #0a192f;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #555;
+}
+
+/* Header and Nav */
+#header {
+  background-color: #0a192f; /* Match the sections' background color */
+  color: white; /* Ensure the text color is white for contrast */
+  padding: 10px 20px; /* Adjust padding as needed */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000; /* Make sure the header stays on top */
+  transition: top 0.3s;
+  box-shadow: 200ms cubic-bezier(0.33, 1, 0.68, 1); /* Adds a shadow */
+}
+
+header.active {
+  box-shadow: hsla(0 0% 0% / 0.1) 0 0.5rem 1rem;
+  transition-duration: 400ms;
+}
+
+#header a,
+.logo {
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem; /* Uniform padding for all links */
+}
+
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+#navbar a:nth-child(4) {
+  margin-right: 60px; /* Adjust accordingly */
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  max-width: 100%;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.logo:hover {
+  color: #64ffda; /* Adjust hover color as needed */
+}
+
+#navbar {
+  display: flex; /* Ensure this is flex to align the items */
+  align-items: center; /* This will vertically center the links */
+}
+
+#navbar a:not(:last-child) {
+  margin-right: 20px; /* This will add space between the links */
+}
+
+#navbar .resume {
+  padding: 0.75rem 2rem; /* More padding for the 'Resume' button */
+  border: 2px solid white; /* Border for the 'Resume' button */
+  border-radius: 4px;
+}
+
+#navbar a:hover {
+  color: #64ffda; /* Adjust hover color as needed */
+}
+
+.resume {
+  background-color: transparent; /* Make the button transparent */
+  padding: 0.75rem; /* px-3 py-1 */
+  border: 2px solid white; /* border border-white */
+  text-decoration: none; /* No underline */
+  transition: all 0.3s ease; /* Transition for background and border color */
+}
+
+.resume:hover {
+  background-color: white; /* Fill button on hover with the original button color */
+  color: black; /* Text color to ensure readability */
+  border-color: white; /* Optionally adjust the border color on hover */
+}
+
+/* Hero Section */
+.container {
+  max-width: 1200px; /* Set the max-width for the content */
+  margin: 0 auto; /* Center the container */
+  padding: 0 50px; /* Add padding on the sides */
+}
+
+.typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid; /* Simulates the cursor */
+  width: 0;
+  max-width: 450px;
+  animation: typing 2s steps(12, end) forwards,
+    blink-caret 0.75s step-end infinite;
+  /* Adjust the duration and steps based on the length of the text and desired speed */
+}
+
+.cursor::after {
+  content: "|";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
+}
+
+/* Hero Section */
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+#hero {
+  position: relative;
+  background: #0a192f; /* Adjust the color or add a background image as needed */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Center text */
+  color: white; /* Text color */
+  padding: 0 20px; /* Padding on the sides */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative; 
+  max-width: 900px; /* Adjust the width as needed */
+  width: 100%;
+  padding: 0 20px; /* Padding on small screens */
+}
+
+.hero-content h1 {
+  color: #64ffda;
+  margin-bottom: 2rem; /* Space below h1 */
+  font-size: 3rem; /* Adjust font size as needed */
+  /* Other styling for h1 */
+}
+
+.hero-content .subtitle {
+  margin-bottom: 2rem; /* Space below p to match space below h1 */
+  font-size: 1.5rem; /* Adjust font size as needed */
+  /* Other styling for p */
+}
+
+.hero-content .cta-button {
+  /* Button styling */
+  padding: 1rem 2rem; /* Adjust padding as needed */
+  /* Other styling for a */
+}
+
+/* If the CTA button is a link (<a>), you might need to set it to inline-block to apply vertical margins */
+.hero-content .cta-button {
+  display: inline-block;
+  margin-bottom: 2rem; /* Space below a if needed */
+}
+
+.cta-button {
+  background-color: transparent; /* Make the button transparent */
+  color: white; /* Text color remains the same */
+  padding: 1em 2em; /* Padding inside the button */
+  text-decoration: none; /* Remove underline from links */
+  font-weight: bold; /* Make the button text bold */
+  border: 2px solid white; /* Outline with the original button color */
+  border-radius: 4px; /* Rounded corners for the button */
+  transition: all 0.3s ease; /* Transition for background and border color */
+  font-size: 1.2em; /* Adjust the button font size as needed */
+}
+
+.cta-button:hover {
+  background-color: white; /* Fill button on hover with the original button color */
+  color: black; /* Text color to ensure readability */
+  border-color: white; /* Optionally adjust the border color on hover */
+}
+
+/* Right side of hero section */
+
+.container .right-side {
+  width: 50%;
+}
+
+.container .right-side .image-box {
+  width: 350px;
+  height: 350px;
+  border: 5px solid #c500d6;
+  margin: auto;
+  border-bottom-right-radius: 20px;
+  position: relative;
+}
+
+.container .right-side .image-box::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border: 5px solid white;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  border-bottom-right-radius: 20px;
+  animation: slide 0.8s ease-in;
+  animation-delay: 2s;
+}
+
+.hero-box .right-side .image-box .profile-image {
+  background-image: url(profile-picture.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  animation: slide 0.8s ease-in;
+  animation-delay: 1s;
+}
+
+/* Animation */
+@keyframes slide {
+  0% {
+    transform: translateX(500px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* About Section */
+#about {
+  padding: 4rem 0; /* Adjusted padding for better spacing */
+  background-color: #0a192f; /* Existing background color */
+  color: white; /* Existing text color */
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column; /* Keep it as a column on small screens */
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center text */
+  max-width: 1200px; /* Max width to constrain the content width */
+  margin: 0 auto; /* Center the container */
+  padding: 0 2rem; /* Add padding on the sides for some breathing room */
+}
+
+.about-content h2,
+.about-content p {
+  color: white; /* or any other color that suits the dark background */
+}
+
+.about-container .profile-picture {
+  order: 2; /* The image should be second in line */
+  width: 150px; /* Set the width of the image container */
+  height: 150px; /* Set the height of the image container */
+  border-radius: 50%; /* To make the image round */
+  overflow: hidden; /* Hide overflow */
+  margin: 1rem 0; /* Add some vertical spacing */
+}
+
+.profile-img {
+  border-radius: 50%; /* To make the image round */
+  width: 150px; /* Increase the size of the image */
+  height: 150px; /* Keep the aspect ratio square */
+}
+
+.about-content {
+  width: 100%; /* Take the full width on mobile */
+}
+
+.about-container h2 {
+  order: 1; /* The title should be first */
+  font-size: 2rem; /* Increase font size for the heading */
+}
+
+.about-container p {
+  order: 3; /* The paragraph should be last */
+  font-size: 1.25rem; /* Increase font size for the paragraph */
+  line-height: 1.6; /* Adjust line height for readability */
+}
+
+/* My Work Section */
+#portfolio {
+  padding: 4rem 0;
+  background-color: #0a192f; /* Change this to match your desired background */
+  text-align: center;
+}
+
+#portfolio h2 {
+  font-size: 2rem; /* text-2xl */
+  font-weight: bold; /* font-bold */
+  margin-bottom: 1rem; /* mb-4 */
+  text-align: center; /* Center the heading */
+  color: white;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* grid-cols-1 */
+  gap: 1rem; /* gap-4 */
+  padding: 0 1rem; /* Add padding to the sides */
+  max-width: 1200px; /* Maximum width of the grid */
+  margin: 0 auto; /* Center the grid in the page */
+}
+
+.project-card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px; /* rounded-lg */
+  transition: 0.3s;
+  background: #fff; /* Background color for the cards */
+  color: black; /* Text color for the cards */
+}
+
+.project-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.project-image {
+  border-radius: 5px 5px 0 0;
+}
+
+.project-info {
+  padding: 1rem; /* p-4 */
+  text-align: left; /* Align text to the left */
+}
+
+.project-info h3 {
+  font-weight: bold; /* font-bold */
+}
+
+.project-info p {
+  margin-top: 0.5rem; /* mt-2 */
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 0.5rem; /* mt-2 */
+  color: #007ace; /* text-blue-500 */
+  text-decoration: none; /* No underline */
+}
+
+.project-link:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Contact Section */
+#contact {
+  background-color: #0a192f; /* Match the hero and About Me sections */
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+#contact h2 {
+  font-size: 2rem; /* text-2xl */
+  font-weight: bold;
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.contact-container {
+  max-width: 1200px;
+  padding: 0 1rem;
+  margin: 0 auto; /* Center the container */
+}
+
+.contact-info p,
+.contact-info .lead {
+  font-size: 1.25rem; /* Adjust the font size as needed */
+  color: #e2e8f0; /* This is a lighter gray, you might want to adjust it to improve contrast */
+  margin-top: 1rem;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-info .lead {
+  font-size: 1.5rem; /* Larger font size for 'Let's Chat' */
+}
+
+.contact-action {
+  margin-top: 2rem;
+}
+
+.contact-link {
+  background-color: transparent;
+  color: white; /* Text color to match the section's theme */
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border-radius: 0.375rem;
+  border: 2px solid white; /* Outline with the original button color */
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.contact-link:hover {
+  background-color: white; /* Fill button on hover with the original button color */
+  color: black; /* Text color to ensure readability */
+  border-color: white; /* Optionally adjust the border color on hover */
+}
+
+/* Footer */
+#footer {
+  background-color: #0a192f; /* Match the sections' background color */
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.footer-content p {
+  margin-bottom: 1rem; /* Space between the copyright text and icons */
+}
+
+/* Style all anchor tags within footer-content, but not the 'inspired-link' if you added it */
+.footer-content a:not(.inspired-link) {
+  color: white; /* Icon color */
+  margin: 0 10px; /* Space between icons */
+  font-size: 1.5rem; /* Icon size */
+}
+
+.footer-content a:hover {
+  color: #64ffda; /* Color change on hover */
+}
+
+/* Separate style for the 'inspired-link' if you decide to use it for "Brittney Chiang" */
+.inspired-link {
+  font-size: 1rem; /* Reset to default text size if necessary */
+  color: white; /* Or any other color to differentiate */
+}
+
+.inspired-link:hover {
+  color: #64ffda; /* Maintains hover effect consistency */
+}
+
+/* On larger screens, use a media query to adjust the layout */
+@media (min-width: 768px) {
+  .about-container {
+    flex-direction: row; /* Side by side on larger screens */
+    justify-content: left; /* Center items horizontally */
+    align-items: left; /* Align items vertically */
+  }
+
+  .about-container .profile-picture {
+    margin: 0 2rem; /* Add horizontal margin for spacing */
+  }
+
+  /* Since we're using flex, the 'order' property is no longer needed for large screens */
+  .about-container .about-content h2,
+  .about-container .about-content p {
+    order: unset;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr); /* md:grid-cols-3 */
+    padding: 0 1rem; /* Adjust padding for medium screens */
+  }
+
+  /* To unhide the navbar on md screens and above, use a media query */
+  #navbar {
+    display: flex; /* md:flex */
+  }
+}
